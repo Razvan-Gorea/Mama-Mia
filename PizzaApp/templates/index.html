@@ -1,0 +1,25 @@
+<!-- create_emp.html -->
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1><kbd>Welcome To The Pizza Maker!</kbd></h1>
+    <article>
+    <h3><em>Create your pizza below:</em></h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h6>Choose Your Pizza Size:</h6>
+        {{ form.size }}
+        <h6>Choose Your Topping(s):</h6>
+        {{ form.toppings }}
+        <br>
+        <h6>Choose Your Crust Type:</h6>
+        {{ form.crust }}
+        <h6>Choose Your Sauce Type:</h6>
+        {{ form.sauces }}
+        <h6>Choose Your Cheese Type: </h6>
+        {{ form.cheese }}
+        <button type="submit" class="contrast">Create Pizza</button>
+    </form>
+    </article>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1><ins><em>Your order has been confirmed!</em></ins></h1>
+    <article>
+    <h3>Your Order Details:</h3>
+            <p><strong>First Name:</strong> {{ customer.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ customer.last_name }}</p>
+            <p><strong>Address:</strong> {{ customer.address }}</p>
+    </article>
+    <article>
+    <h3>Your Pizza:</h3>
+        <p><strong>Size</strong>:{{ pizza.size }}</p>
+            <p><strong>Topping(s):</strong>
+            {% for topping in pizza.toppings.all %}
+                {{ topping }}
+            {%endfor%}
+        </p>
+
+            <p><strong>Crust:</strong> {{ pizza.crust}}</p>
+            <p><strong>Cheese:</strong> {{ pizza.cheese }}</p>
+            <p><strong>Sauce:</strong> {{ pizza.sauces}}</p>
+    </article>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!--created.html-->
+{% extends 'base.html' %}
+{% block content %}
+    <h1><ins>Your Pizza Order is Pending!</ins></h1>
+    <article>
+    <h4>Your Pizza:</h4>
+            <strong>Size:</strong> {{ pizza.size }}
+            <br><br>
+            <strong>Topping(s):</strong> 
+            
+            {% for topping in pizza.toppings.all %}
+                {{ topping }}
+            {%endfor%}
+            
+            <br><br>
+            <strong>Cheese Type:</strong> {{ pizza.cheese }}
+            <br><br>
+            <strong>Crust Type:</strong> {{ pizza.crust }}
+            <br><br>
+            <strong>Sauce:</strong> {{ pizza.sauces }}
+    <br><br>
+    </article>
+    <article>
+    <h4>Enter your details to confirm your order:</h4>     
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form1.first_name }}
+        {{ form1.last_name }}
+        {{ form1.card_number }}
+        {{ form1.date }}
+        {{ form1.card_cvv }}
+        {{ form1.address }}
+        {{ form1.pizza_details }}
+        {{form1.errors}}
+        <button type="submit" class="contrast">Confirm Order</button>
+    </form>
+    </article>
+{% endblock %}
