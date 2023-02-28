@@ -95,4 +95,7 @@ class DetailsForm(forms.ModelForm):
         # Return the parsed date
         return parsed_date.strftime('%m/%y')
     
-    
+
+    def __init__(self, *args, **kwargs):
+        super(DetailsForm, self).__init__(*args, **kwargs)
+        self.fields['pizza_details'].required = False    

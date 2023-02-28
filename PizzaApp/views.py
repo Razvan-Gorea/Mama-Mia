@@ -33,10 +33,10 @@ def details(request, pizzaid):
 				# entered , it is stored in request.POST
         form1 = DetailsForm(request.POST)
         if form1.is_valid():
-            customer = form1.save() # create the Employee object and save it
+            customer=form1.save() # create the Employee object and save it
 						# send the user to a confirmation page saying
 						# confirming that they filled in the form and the data was saved 
-            return render(request, 'confirmation.html', {'customer':customer, 'pizza':pizza})
+            return render(request, 'confirmation.html', {'customer':customer,'pizza':pizza})
         else:
 						# form has errors
 						# send the form back to the user
