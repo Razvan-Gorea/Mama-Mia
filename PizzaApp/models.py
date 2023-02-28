@@ -57,4 +57,5 @@ class Pizza(models.Model):
     cheese = models.ForeignKey(Cheese, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.size) + " " +  str(self.toppings) + " " + str(self.crust) + " " + str(self.sauces) + " " + str(self.cheese)
+        toppings = [str(topping) for topping in self.toppings.all()]
+        return str(self.size) + " " +  ' '.join(toppings) + " " + str(self.crust) + " " + str(self.sauces) + " " + str(self.cheese)
